@@ -1,0 +1,27 @@
+.image-dialog {
+    max-width: 92vw;
+    max-height: 92vh;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.image-dialog::backdrop { background: rgba(0, 0, 0, .8); backdrop-filter: blur(4px); }
+
+.image-dialog img { display: block; max-width: 92vw; max-height: 92vh; object-fit: contain; }
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(0, 0, 0, .65);
+    font-size: 1.1rem;
+    cursor: pointer;
+}

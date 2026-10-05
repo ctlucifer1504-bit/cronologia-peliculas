@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cronología de películas basada en el archivo proporcionado.">
+    <meta name="theme-color" content="#070912">
+    <title>Cronología de Películas</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎬%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/dialog.css">
+</head>
+<body>
+
+<header>
+    <h1>Cronología de Películas</h1>
+    <p><span id="movie-count">0</span> títulos • Información tomada del archivo proporcionado</p>
+    <div class="search">
+        <label for="search-input" class="visually-hidden">Buscar película</label>
+        <input id="search-input" type="search" placeholder="Buscar por título o número…" autocomplete="off">
+    </div>
+</header>
+
+<main class="container">
+    <p id="no-results" class="no-results" role="status" hidden>No se encontraron películas.</p>
+    <ol id="timeline" class="timeline"></ol>
+</main>
+
+<footer>
+    <p>Los títulos, fechas, duraciones y universo corresponden a los datos del archivo proporcionado.</p>
+</footer>
+
+<dialog id="image-dialog" class="image-dialog" aria-label="Póster ampliado">
+    <form method="dialog"><button class="close-modal" aria-label="Cerrar">✕</button></form>
+    <img id="dialog-img" alt="">
+</dialog>
+
+<template id="movie-template">
+    <li class="movie">
+        <div class="poster">
+            <button type="button" class="poster-btn" aria-label="Ampliar póster">
+                <img loading="lazy" decoding="async" alt="">
+            </button>
+        </div>
+        <div class="movie-info">
+            <span class="number"></span>
+            <h2></h2>
+            <div class="details">
+                <span><span aria-hidden="true">📅</span> <time></time></span>
+                <span><span aria-hidden="true">⏱️</span> <span class="duration"></span></span>
+                <span><span aria-hidden="true">🌎</span> <span class="universe"></span></span>
+            </div>
+        </div>
+    </li>
+</template>
+
+<script src="js/movies.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

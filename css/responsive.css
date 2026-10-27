@@ -1,0 +1,270 @@
+/* =========================================================
+   Adaptabilidad mobile-first.
+   Puntos de ruptura: 640px, 720px, 900px, 960px y 1200px.
+   ========================================================= */
+
+/* Móviles pequeños ----------------------------------------------------- */
+@media (max-width: 359px) {
+    .stack-poster--far,
+    .stack-poster--back {
+        display: none;
+    }
+
+    .hero-visual {
+        min-height: 340px;
+    }
+
+    .hero-stats {
+        gap: 1rem 1.4rem;
+    }
+}
+
+/* Tabletas pequeñas ---------------------------------------------------- */
+@media (min-width: 640px) {
+    .container {
+        width: min(var(--container), calc(100% - 64px));
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .upcoming-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .upcoming-card--featured {
+        grid-column: 1 / -1;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-visual {
+        min-height: 440px;
+    }
+
+    .poster-stack {
+        height: 430px;
+    }
+
+    .stack-poster--front {
+        width: 200px;
+    }
+
+    .stack-poster--mid,
+    .stack-poster--right {
+        width: 168px;
+    }
+}
+
+/* Diálogo en dos columnas --------------------------------------------- */
+@media (min-width: 720px) {
+    .dialog-panel {
+        grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .dialog-poster {
+        max-height: none;
+        aspect-ratio: auto;
+        min-height: 100%;
+    }
+}
+
+/* Escritorio ----------------------------------------------------------- */
+@media (min-width: 900px) {
+    :root {
+        --header-h: 84px;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .main-nav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .35rem;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        align-items: center;
+        gap: .1rem;
+    }
+
+    .nav-link {
+        padding: .55rem .7rem;
+        font-size: .86rem;
+    }
+
+    .nav-cta {
+        margin-top: 0;
+        margin-left: .4rem;
+    }
+
+    .hero {
+        padding-top: clamp(4rem, 7vw, 6rem);
+    }
+
+    .hero-inner {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+        gap: 2rem;
+    }
+
+    .hero-visual {
+        min-height: 500px;
+    }
+
+    .poster-stack {
+        height: 480px;
+    }
+
+    .section-heading--split {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        align-items: end;
+        gap: 2rem;
+    }
+
+    .timeline-toolbar {
+        grid-template-columns: minmax(260px, 1fr) auto;
+        align-items: center;
+    }
+
+    .toolbar-controls {
+        justify-content: flex-end;
+    }
+
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+        gap: 3.5rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+        gap: 3.5rem;
+    }
+
+    .upcoming-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+    }
+
+    .upcoming-card--featured {
+        grid-column: auto;
+        transform: translateY(-10px);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1.4fr .7fr .7fr 1fr;
+        gap: 2rem;
+    }
+
+    .movie-card {
+        grid-template-columns: 112px minmax(0, 1fr);
+    }
+
+    .movie-content {
+        padding: 1.05rem 1.15rem;
+    }
+}
+
+/* Línea de tiempo alternada ------------------------------------------- */
+@media (min-width: 960px) {
+    .timeline {
+        gap: 1.25rem;
+        padding-left: 0;
+    }
+
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        width: calc(50% - 42px);
+    }
+
+    .timeline-item::before {
+        top: 36px;
+    }
+
+    .timeline-item.is-left {
+        margin-right: auto;
+    }
+
+    .timeline-item.is-right {
+        margin-left: auto;
+    }
+
+    .timeline-item.is-left::before {
+        right: -49px;
+        left: auto;
+    }
+
+    .timeline-item.is-right::before {
+        left: -49px;
+        right: auto;
+    }
+
+    .movie-card {
+        grid-template-columns: 118px minmax(0, 1fr);
+    }
+}
+
+/* Pantallas grandes ---------------------------------------------------- */
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+    }
+
+    .movie-card {
+        grid-template-columns: 126px minmax(0, 1fr);
+    }
+
+    .movie-poster {
+        min-height: 180px;
+    }
+
+    .dialog-panel {
+        grid-template-columns: 280px minmax(0, 1fr);
+    }
+}
+
+/* Ajustes de pantallas muy estrechas ---------------------------------- */
+@media (max-width: 420px) {
+    .dialog-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .sort-label {
+        display: none;
+    }
+
+    .results-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .35rem;
+    }
+
+    .floating-chip {
+        left: -.2rem;
+        font-size: .66rem;
+    }
+
+    .floating-card {
+        right: -.2rem;
+    }
+}

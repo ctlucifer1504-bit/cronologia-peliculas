@@ -1,0 +1,176 @@
+/* =========================================================
+   Animaciones, transiciones y efectos de profundidad.
+   Todas las animaciones respetan prefers-reduced-motion.
+   ========================================================= */
+
+/* Aparición al hacer scroll (la clase .js la añade el documento) */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity .7s cubic-bezier(.2, .7, .3, 1),
+        transform .7s cubic-bezier(.2, .7, .3, 1);
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retardo escalonado para grupos de tarjetas */
+.js .step-card.reveal:nth-child(1) { transition-delay: 40ms; }
+.js .step-card.reveal:nth-child(2) { transition-delay: 110ms; }
+.js .step-card.reveal:nth-child(3) { transition-delay: 180ms; }
+
+/* Movimiento ambiental suave */
+@keyframes float-soft {
+    0%,
+    100% { translate: 0 0; }
+    50% { translate: 0 -9px; }
+}
+
+@keyframes breathe {
+    0%,
+    100% { opacity: .72; }
+    50% { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, .4); }
+    70% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    100% { background-position: 220% center; }
+}
+
+@keyframes drift {
+    0%,
+    100% { translate: 0 0; }
+    50% { translate: -14px 18px; }
+}
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px) scale(.98);
+    }
+}
+
+@keyframes dialog-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Aplicación */
+.text-gradient {
+    animation: gradient-shift 9s linear infinite;
+}
+
+.hero-halo {
+    animation: breathe 7s ease-in-out infinite;
+}
+
+.stack-poster--front {
+    animation: float-soft 6.5s ease-in-out infinite;
+}
+
+.stack-poster--mid {
+    animation: float-soft 7.5s ease-in-out infinite;
+    animation-delay: -1.2s;
+}
+
+.stack-poster--right {
+    animation: float-soft 8s ease-in-out infinite;
+    animation-delay: -2.4s;
+}
+
+.pulse-dot {
+    animation: pulse-ring 2.4s ease-out infinite;
+}
+
+.upcoming-glow {
+    animation: drift 14s ease-in-out infinite;
+}
+
+.movie-dialog[open] {
+    animation: dialog-in .28s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.movie-dialog[open]::backdrop {
+    animation: backdrop-in .28s ease both;
+}
+
+.toast {
+    animation: toast-in .3s cubic-bezier(.2, .7, .3, 1) both;
+}
+
+.toast.is-leaving {
+    animation: toast-out .24s ease both;
+}
+
+.btn.is-loading .icon {
+    animation: spin .9s linear infinite;
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .stack-poster--front,
+    .stack-poster--mid,
+    .stack-poster--right,
+    .hero-halo,
+    .upcoming-glow,
+    .text-gradient {
+        animation: none;
+    }
+}

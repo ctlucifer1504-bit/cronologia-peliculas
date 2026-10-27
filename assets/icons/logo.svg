@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Cronología de Películas</title>
+  <defs>
+    <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7C5CFC"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="logo-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151C33"/>
+      <stop offset="1" stop-color="#0B1020"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="17" fill="url(#logo-fill)" stroke="url(#logo-gradient)" stroke-width="2"/>
+  <rect x="13" y="17" width="38" height="30" rx="6" fill="none" stroke="url(#logo-gradient)" stroke-width="2.4"/>
+  <path d="M13 25.5h38" stroke="url(#logo-gradient)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="19" cy="21.2" r="1.7" fill="#38BDF8"/>
+  <circle cx="27" cy="21.2" r="1.7" fill="#7C5CFC"/>
+  <circle cx="35" cy="21.2" r="1.7" fill="#38BDF8"/>
+  <circle cx="43" cy="21.2" r="1.7" fill="#7C5CFC"/>
+  <path d="M28.5 31.5 39 37.2l-10.5 5.7V31.5Z" fill="#F8FAFC"/>
+</svg>
